@@ -1,1 +1,1 @@
-Sessao{idSessao=1, dataEHora='22h30', idCinema=1}
+2;20/05/2014;1
