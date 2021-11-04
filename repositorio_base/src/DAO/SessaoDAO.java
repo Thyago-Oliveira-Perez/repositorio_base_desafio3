@@ -12,35 +12,24 @@ import java.util.List;
 public class SessaoDAO {
 
     public void cadastrarSessao(List<Sessao> sessoes){
-
         File sessaoFile = new File("sessoes.txt");
 
         if(!sessaoFile.isFile()){
-
             try {
                 sessaoFile.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-
         try {
             FileWriter fileWriter = new FileWriter(sessaoFile);
             PrintWriter printWriter  = new PrintWriter(fileWriter);
-
             for(int i = 0; i < sessoes.size(); i++){
-
                 printWriter.println(sessoes.get(i));
-
             }
-
             fileWriter.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }
