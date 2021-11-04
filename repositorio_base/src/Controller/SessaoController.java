@@ -4,6 +4,7 @@ import DAO.SessaoDAO;
 import Model.Cinema;
 import Model.Sessao;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,4 +63,11 @@ public class SessaoController {
         return this.sessoes;
 
     }
+
+    public List<Sessao> carregarSessoes() throws IOException {
+        this.sessoes = sessaoDAO.carregaSessoes();
+        return sessoes;
+    }
+
+
 }
