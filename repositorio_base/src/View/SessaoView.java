@@ -29,17 +29,18 @@ public class SessaoView {
          sessao.setIdCinema(idCinema);
 
          System.out.println("Sessao cadastrada com sucesso! \n" + sessao);
-
+         sessaoController.cadastrar(sessao);
 
      }
+
     public void listarSessoes(){
 
-
+        System.out.println(sessaoController.getSessoes());
 
     }
     public void listarSessoesByIdCinema(Long idCinema){
 
-
+        System.out.println(sessaoController.getSessoesByIdCinema(idCinema));
 
     }
 

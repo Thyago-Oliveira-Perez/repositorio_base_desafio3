@@ -1,7 +1,9 @@
 package Controller;
 
+import DAO.CinemaDAO;
 import Model.Cinema;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,8 @@ public class CinemaController {
 
     private List<Cinema> cinemas = new ArrayList<>();
     private Long cinemaSelecionado;
+
+    private CinemaDAO cinemaDao = new CinemaDAO();
 
     public Long getCinemaSelecionado() {
         return cinemaSelecionado;
@@ -23,6 +27,7 @@ public class CinemaController {
         if(!idExistente(cinema.getId())){
 
             cinemas.add(cinema);
+            cinemaDao.cadastrarCinema(cinemas);
 
         }else{
 
@@ -38,7 +43,7 @@ public class CinemaController {
 
             if(cinemas.get(i).getId() == idCinema){
 
-                System.out.println("Esse ID já existe.");
+                //System.out.println("Esse ID já existe.");
                 return true;
             }
         }
@@ -47,6 +52,13 @@ public class CinemaController {
 
     public List<Cinema> listar(){
 
+        return cinemas;
+
+    }
+
+    public List<Cinema> carregarCinemas() throws IOException {
+
+        this.cinemas = cinemaDao.carregarCinemas();
         return cinemas;
 
     }

@@ -1,0 +1,1 @@
+Sessao{idSessao=1, dataEHora='22h30', idCinema=1}

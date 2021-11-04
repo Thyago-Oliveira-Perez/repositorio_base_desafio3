@@ -3,6 +3,7 @@ package View;
 import Controller.CinemaController;
 import Model.Cinema;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CinemaView {
@@ -60,12 +61,13 @@ public class CinemaView {
 
     public void menuCinema(){
 
-        System.out.println("1 - Listar cinemas\n2 - Cadastrar cinema\n 3 - Acessar cinema");
+        System.out.println("1 - Listar cinemas\n2 - Cadastrar cinema\n3 - Acessar cinema");
 
         switch (entrada.nextInt()){
 
             case 1:
                 this.listarCinemas();
+                this.menuCinema();
             break;
 
             case 2:
@@ -84,18 +86,20 @@ public class CinemaView {
 
     public void menuInterno(Long cinemaSelecionado){
 
-        System.out.println("1 - Listar sessoes\n2 - Cadastrar sessao\n3 - Deletar Cinema");
+        System.out.println("1 - Listar sessoes\n2 - Cadastrar sessao\n3 - Deletar Cinema\n4 - Sair\n5 - Listar todas as sessoes");
 
         switch (entrada.nextInt()){
 
             case 1:
 
                 sessaoView.listarSessoesByIdCinema(cinemaSelecionado);
+                menuInterno(cinemaSelecionado);
 
             break;
             case 2:
 
                 sessaoView.cadastrarSessao(cinemaSelecionado);
+                menuInterno(cinemaSelecionado);
 
             break;
             case 3:
@@ -103,7 +107,25 @@ public class CinemaView {
                 System.out.println("Em andamento");
 
             break;
+
+            case 4:
+
+                menuCinema();
+
+            break;
+            case 5:
+
+                sessaoView.listarSessoes();
+                menuInterno(cinemaSelecionado);
+
+            break;
         }
+
+    }
+
+    public void carregarCinemas() throws IOException {
+
+        System.out.println(cinemaController.carregarCinemas());
 
     }
 

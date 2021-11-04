@@ -40,10 +40,6 @@ public class Sessao {
 
     @Override
     public String toString() {
-        return "Sessao{" +
-                "idSessao=" + idSessao +
-                ", dataEHora='" + dataEHora + '\'' +
-                ", idCinema=" + idCinema +
-                '}';
+        return idSessao + ";" + dataEHora + ";" + idCinema;
     }
 }

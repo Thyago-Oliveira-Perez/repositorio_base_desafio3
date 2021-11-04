@@ -40,10 +40,7 @@ public class Cinema {
 
     @Override
     public String toString() {
-        return "Cinema{" +
-                "id=" + idCinema +
-                ", nome='" + nome + '\'' +
-                ", cnpj='" + cnpj + '\'' +
-                '}';
+        return idCinema + ";" + nome + ";" + cnpj;
     }
+
 }
