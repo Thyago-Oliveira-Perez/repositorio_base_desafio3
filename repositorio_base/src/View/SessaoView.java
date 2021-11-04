@@ -4,6 +4,7 @@ import Controller.SessaoController;
 import Model.Cinema;
 import Model.Sessao;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class SessaoView {
@@ -44,4 +45,9 @@ public class SessaoView {
 
     }
 
+    public void listasSessoesArq() throws IOException {
+
+        System.out.println(sessaoController.carregarSessoes());
+
+    }
 }
